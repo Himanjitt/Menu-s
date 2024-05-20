@@ -2,7 +2,7 @@
     color: red;
 }
 .logo{
-    width: 160px;
+    width: 200px;
 }
 
 .header{
@@ -15,7 +15,7 @@
     list-style-type: none;
     display: flex;
 
-    font-size: 14px;
+    font-size: 25px;
 }
 
 .nav-items > ul > li{
@@ -48,4 +48,9 @@
     
     display: flex;
     flex-wrap: wrap;
+}
+
+.filter-btn{
+    margin: 10px;
+    cursor: pointer;
 }
