@@ -18,7 +18,7 @@ const Body = () => {
 
   const fetchData = async () => {
     const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=26.1157917&lng=91.7085933&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+      "https://2e33651f-2913-4ac6-ab9c-269e81888048.mock.pstmn.io/restaurants"
     );
     const json = await data.json();
     //console.log(json);

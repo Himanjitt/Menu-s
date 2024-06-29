@@ -1,78 +1,78 @@
-#heading{
-    color: red;
+#heading {
+  color: red;
 }
-.logo{
-    width: 200px;
+.logo {
+  width: 200px;
 }
 
-.header{
-    display: flex;
-    justify-content: space-between;
-    border: 1px solid black;
+.header {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid black;
 }
 
 .nav-items > ul {
-    list-style-type: none;
-    display: flex;
+  list-style-type: none;
+  display: flex;
 
-    font-size: 25px;
+  font-size: 25px;
 }
 
-.nav-items > ul > li{
-    padding: 10px;
-    margin: 10px;
+.nav-items > ul > li {
+  padding: 10px;
+  margin: 10px;
 }
 
-.res-card{
-    margin: 5px;
-    padding: 5px;
-    width: 200px;
-  
-   
+.res-card {
+  margin: 5px;
+  padding: 5px;
+  width: 200px;
 }
 
-.res-card:hover{
-    border: 1px solid black;
+.res-card:hover {
+  border: 1px solid black;
 }
-.search{
-    padding: 10px;
-}
-
-.res-logo{
-   
-    width: 100%;
+.search {
+  padding: 10px;
 }
 
-
-.res-container{
-    
-    display: flex;
-    flex-wrap: wrap;
+.res-logo {
+  width: 100%;
 }
 
-.filter-btn{
-    margin: 10px;
-    cursor: pointer;
+.res-container {
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.shimmer-container{
-    display: flex;
-    flex-wrap: wrap;
+.filter-btn {
+  margin: 10px;
+  cursor: pointer;
 }
 
-.shimmer-card{
-    margin: 20px;
-    width: 200px;
-    height: 400;
-    background-color: #f0f0f0;
+.shimmer-container {
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.login{
-    padding: 0 25px;
-    margin: 0 15px ;
-    cursor: pointer;
+.shimmer-card {
+  margin: 20px;
+  width: 200px;
+  height: 400;
+  background-color: #f0f0f0;
 }
 
-.filter{
-    display: flex;
+.login {
+  padding: 0 25px;
+  margin: 0 15px;
+  cursor: pointer;
+}
+
+.filter {
+  display: flex;
+}
+
+.user-card {
+  padding: 10px;
+  border: 1px solid black;
 }
