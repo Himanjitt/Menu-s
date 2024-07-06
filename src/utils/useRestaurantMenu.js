@@ -9,9 +9,26 @@ const useRestaurantMenu = (resId) => {
   }, []);
 
   const fetchData = async () => {
-    const data = await fetch(MENU_API + resId);
-    const json = await data.json();
-    setResInfo(json.data);
+    try {
+      const res = await fetch("https://handler-cors.vercel.app/fetch", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          url: MENU_API + resId, // Swiggy API URL
+        }),
+      });
+
+      if (!res.ok) {
+        throw new Error("Network response was not ok");
+      }
+
+      const data = await res.json();
+      setResInfo(data.data);
+    } catch (error) {
+      console.error("Failed to fetch data:", error);
+    }
   };
 
   return resInfo;
