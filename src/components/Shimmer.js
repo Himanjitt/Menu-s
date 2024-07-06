@@ -13,6 +13,4 @@ const Shimmer = () => {
   );
 };
 
-console.log(himanjit);
-
 export default Shimmer;
