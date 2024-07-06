@@ -1,15 +1,17 @@
-import RestaurantCard from "./RestaurantCard";
-import resList from "../utils/mockData";
+import RestaurantCard, { withPromtedLabel } from "./RestaurantCard";
 import Shimmer from "./Shimmer";
-import { useEffect, useState } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
   const [listOfRestaurant, setListOfRestaurant] = useState([]);
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
 
   const [searchText, setseachText] = useState("");
+
+  const RestaurantCardPromoted = withPromtedLabel(RestaurantCard);
 
   // will have to update the code with respect to the updated swiggy api, current the render->api call-> again render is not working
 
@@ -41,6 +43,8 @@ const Body = () => {
         Looks like you're offline!! Please check your internet connection;
       </h1>
     );
+
+  const { loggedInUser, setUserName } = useContext(UserContext);
   if (listOfRestaurant.length === 0) {
     return <Shimmer />;
   }
@@ -86,6 +90,14 @@ const Body = () => {
           >
             Top rated Restaurant
           </button>
+        </div>
+        <div className="search m-4 p-4 flex items-center">
+          <label>UserName : </label>
+          <input
+            className="border border-black p-2"
+            value={loggedInUser}
+            onChange={(e) => setUserName(e.target.value)}
+          />
         </div>
       </div>
       <div className="res-container flex flex-wrap">

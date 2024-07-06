@@ -1,7 +1,10 @@
 import { CDN_URL } from "../utils/constants";
+import { useContext } from "react";
+import UserContext from "../utils/UserContext";
 
 const RestaurantCard = (props) => {
   const { resData } = props;
+  const { loggedInUser } = useContext(UserContext);
 
   const { cloudinaryImageId, name, cuisines, avgRating, costForTwo, sla } =
     resData?.info;
@@ -11,7 +14,7 @@ const RestaurantCard = (props) => {
         className="res-log w-full h-32 object-cover rounded-lg"
         src={CDN_URL + cloudinaryImageId}
       />
-      <div px-2 py-2>
+      <div className="px-2 py-2">
         <h3 className="font-bold py-4 text-lg mb-2 ">{name}</h3>
         <h4 className="text-gray-700 text-base leading-tight break-words">
           {cuisines.join(",")}
@@ -19,9 +22,27 @@ const RestaurantCard = (props) => {
         <h4 className="text-gray-700 text-sm mt-1">{avgRating} stars</h4>
         <h4 className="text-gray-700 text-sm mt-1">{costForTwo}</h4>
         <h4 className="text-gray-700 text-sm mt-1">{sla?.slaString} </h4>
+        <h4>User : {loggedInUser} </h4>
       </div>
     </div>
   );
+};
+
+// Higher Order Component
+
+// input - RestaurantCard =>> RestaurantCardPromoted
+
+export const withPromtedLabel = (RestaurantCard) => {
+  return (props) => {
+    return (
+      <div>
+        <label className="absolute bg-black text-white m-2 p-2 rounded-lg">
+          Promoted
+        </label>
+        <RestaurantCard {...props} />
+      </div>
+    );
+  };
 };
 
 export default RestaurantCard;
