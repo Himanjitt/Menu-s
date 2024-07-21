@@ -3,6 +3,7 @@ import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const [btnNameReact, setBtnNameReact] = useState("login");
@@ -11,6 +12,10 @@ const Header = () => {
   const { loggedInUser } = useContext(UserContext);
   // console.log(loggedInUser);
 
+  // Subscribing to the store using a Selector
+  const cartItems = useSelector((store) => store.cart.items);
+  console.log(cartItems);
+
   return (
     <div className="flex justify-between shadow-lg m-2  gradient-animation">
       <div className="Logo-container">
@@ -18,7 +23,7 @@ const Header = () => {
       </div>
       <div className="nav-items flex items-center">
         <ul className="flex p-4 m-4">
-          <li className="px-4">Online Status: {onlineStatus ? "✅" : "🔴"}</li>
+          <li className="px-4">Online: {onlineStatus ? "✅" : "🔴"}</li>
           <li className="px-4">
             <Link to="/">Home</Link>
           </li>
@@ -31,7 +36,10 @@ const Header = () => {
           <li className="px-4">
             <Link to="/grocery">Grocery</Link>
           </li>
-          <li className="px-4">Cart</li>
+
+          <li className="px-4 font--xl">
+            <Link to="/cart">Cart - ({cartItems.length} items)</Link>
+          </li>
           <button
             className="login"
             onClick={() => {
@@ -42,7 +50,7 @@ const Header = () => {
           >
             {btnNameReact}
           </button>
-          <li className="px-4 font-bold">{loggedInUser}</li>
+          <li className="px-4 ">{loggedInUser}</li>
         </ul>
       </div>
     </div>
